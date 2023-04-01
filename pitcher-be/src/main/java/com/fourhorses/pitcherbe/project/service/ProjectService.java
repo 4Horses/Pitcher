@@ -10,4 +10,12 @@ public interface ProjectService {
     ProjectDto createProject(ProjectDto projectDto);
 
     void deleteProject(Long id);
+
+    Long countPitchedProjectsByUserId(Long userId);
+
+    Long countCompletedProjectsByUserId(Long userId);
+
+    Long countSponsoredProjectsByAccountId(Long accountId);
+
+    Long countCreatedProjectsByUserId(Long userId);
 }

@@ -15,4 +15,6 @@ public interface UserAccountService {
     List<UserAccountDto> getAllUserAccount();
 
     UserAccountDto updateUserAccount(UserAccountDto userAccountDto);
+
+    Long countUserAccountProfileCompletion(Long userId);
 }

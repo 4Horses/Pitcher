@@ -41,6 +41,7 @@ public class ProjectEntity extends BaseEntity {
 
     @Basic
     @Column(name = "is_deleted")
+    @Builder.Default
     private Boolean isDeleted = false;
 
     @ManyToOne
