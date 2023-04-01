@@ -26,7 +26,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public List<ProjectDto> getProjects() {
-        var projects = projectRepository.findAll();
+        var projects = projectRepository.findAllByIsDeletedFalse();
 
         return modelMapper.map(projects, new TypeToken<List<ProjectDto>>() {
         }.getType());
@@ -46,5 +46,12 @@ public class ProjectServiceImpl implements ProjectService {
 
         var savedProject = projectRepository.save(projectEntity);
         return modelMapper.map(savedProject, ProjectDto.class);
+    }
+
+    @Override
+    public void deleteProject(Long id) {
+        var project = projectRepository.findById(id).orElseThrow();
+        project.setIsDeleted(true);
+        projectRepository.save(project);
     }
 }

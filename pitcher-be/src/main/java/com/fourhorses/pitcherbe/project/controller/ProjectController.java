@@ -31,4 +31,10 @@ public class ProjectController {
         HttpStatus status = project == null ? HttpStatus.NO_CONTENT : HttpStatus.OK;
         return new ResponseEntity<>(project, status);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteProject(@PathVariable Long id) {
+        projectService.deleteProject(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

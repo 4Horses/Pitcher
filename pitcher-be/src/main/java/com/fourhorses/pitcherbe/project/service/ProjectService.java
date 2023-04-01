@@ -8,4 +8,6 @@ public interface ProjectService {
     List<ProjectDto> getProjects();
 
     ProjectDto createProject(ProjectDto projectDto);
+
+    void deleteProject(Long id);
 }

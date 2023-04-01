@@ -39,6 +39,10 @@ public class ProjectEntity extends BaseEntity {
     @Column(name = "end_date")
     private LocalDateTime endDate;
 
+    @Basic
+    @Column(name = "is_deleted")
+    private Boolean isDeleted = false;
+
     @ManyToOne
     @JoinColumn(name = "user_account_id")
     private UserAccountEntity userAccount;
