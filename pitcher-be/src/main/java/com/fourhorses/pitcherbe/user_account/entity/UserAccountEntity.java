@@ -1,11 +1,11 @@
 package com.fourhorses.pitcherbe.user_account.entity;
 
 import com.fourhorses.pitcherbe.common.account.AccountEntity;
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import com.fourhorses.pitcherbe.project.entity.ProjectEntity;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -24,4 +24,7 @@ public class UserAccountEntity extends AccountEntity {
     @Basic
     @Column(name = "last_name", length = 50)
     private String lastName;
+
+    @OneToMany(mappedBy = "userAccount", fetch = FetchType.LAZY)
+    private List<ProjectEntity> projectEntities;
 }
