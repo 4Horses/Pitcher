@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,16 +7,19 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  reactiveForm!: FormGroup;
+  public reactiveForm = new FormGroup({
+    email: new FormControl("", [Validators.required,
+      Validators.pattern("^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"),
+    ]),
+    password: new FormControl("", Validators.required),
+   
+  });
 
   ngOnInit(){
-    this.reactiveForm = new FormGroup({
-      email: new FormControl(''),
-      password: new FormControl('')
-    });
+    
 
   }
   isValid(){
-    return !this.reactiveForm.valid;
+    return this.reactiveForm.valid;
   }
 }
