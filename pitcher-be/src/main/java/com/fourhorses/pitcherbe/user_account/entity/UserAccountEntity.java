@@ -1,6 +1,6 @@
 package com.fourhorses.pitcherbe.user_account.entity;
 
-import com.fourhorses.pitcherbe.account.AccountEntity;
+import com.fourhorses.pitcherbe.common.account.AccountEntity;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
