@@ -1,0 +1,97 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: blue;
+}
+
+.credentials-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: #fafafa;
+}
+
+.role-container{
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    margin-bottom: 20px;
+}
+.login-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: #fafafa;
+}
+
+.hero-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: #0d0f2f;
+}
+form {
+  width: 60%;
+}
+input {
+  margin-bottom: 20px;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.titleContainer {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 50px;
+  flex-direction: column;
+  width: 60%;
+}
+.title {
+  font-size: 30px;
+  color: #0d0f2f;
+}
+.subtitle {
+  font-size: 16px;
+  color: #0d0f2f;
+  margin-top: 15px;
+}
+.register {
+  padding-inline: 50px;
+}
+.register-text {
+  color: #23a6f0;
+  padding-left: 10px;
+}
+.rights-container {
+  margin-bottom: 20px;
+}
+.active-button{
+    background-color: #23a6f0;
+    color: white;
+}
+.inactive-button{
+    background-color: #0d0f2f;
+    color: white;
+}
+#corporate{
+    display: none;
+}
+.form-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

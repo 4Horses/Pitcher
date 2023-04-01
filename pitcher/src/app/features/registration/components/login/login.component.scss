@@ -6,21 +6,81 @@
   width: 100vw;
   background-color: blue;
 }
-
-.login-container {
+.credentials-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   height: 100%;
   width: 100%;
-  background-color: red;
+  background-color: #fafafa;
+}
+.login-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: #fafafa;
 }
 
 .hero-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   height: 100%;
   width: 100%;
-  background-color: green;
+  background-color: #0d0f2f;
 }
+form {
+  width: 60%;
+}
+input {
+  margin-bottom: 20px;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.forgotPassword {
+  font-size: small;
+  color: #23a6f0;
+}
+.password-container {
+  display: flex;
+  justify-content: space-between;
+}
+.title-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 50px;
+  flex-direction: column;
+  width: 60%;
+}
+.title {
+  font-size: 30px;
+  color: #0d0f2f;
+}
+.subtitle {
+  font-size: 16px;
+  color: #0d0f2f;
+  margin-top: 15px;
+}
+.login-btn {
+  padding-inline: 50px;
+}
+.rights-container {
+  margin-bottom: 20px;
+}
+.register-text{
+    color: #23a6f0;
+    padding-left: 10px;
+}
+.image-container{
+    display: flex;
+    width: 100%;
+}
+

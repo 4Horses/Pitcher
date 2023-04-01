@@ -16,4 +16,7 @@ export class LoginComponent {
     });
 
   }
+  isValid(){
+    return !this.reactiveForm.valid;
+  }
 }

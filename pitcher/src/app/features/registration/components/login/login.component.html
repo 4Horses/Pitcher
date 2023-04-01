@@ -1,28 +1,71 @@
 <div class="main-container">
   <div class="login-container">
-    <form [formGroup]="reactiveForm">
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input
-          type="email"
-          class="form-control"
-          formControlName="email"
-        />
+    <div class="credentials-container">
+      <div class="title-container">
+        <div class="title"><b>Login</b></div>
+        <div class="subtitle">
+          Enter your credentials to access your account
+        </div>
       </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          class="form-control"
-          formControlName="password"
-        />
-      </div>
-      <button type="submit" class="btn btn-primary">
-        Login
-      </button>
-    </form>
+      <form [formGroup]="reactiveForm">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" formControlName="email" />
+        </div>
+        <div class="form-group">
+          <div class="password-container">
+            <div><label for="password">Password</label></div>
+            <div class="forgotPassword">
+              <a
+                class="forgotPassword"
+                href=""
+                [routerLink]="['/forgot-password']"
+              >
+                <b>Forgot password?</b></a
+              >
+            </div>
+          </div>
+          <input
+            type="password"
+            class="form-control"
+            formControlName="password"
+          />
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+          <label class="form-check-label" for="exampleCheck1"
+            >Remember information</label
+          >
+        </div>
+        <div class="button-container">
+          <button
+            type="submit"
+            class="btn btn-primary login-btn"
+            [disabled]="isValid()"
+          >
+            Login
+          </button>
+        </div>
+        <div class="button-container">
+          <label>Don't have an account? </label>
+          <a class="register-text" href="" [routerLink]="['/register']">
+            <b>Register here</b></a
+          >
+        </div>
+      </form>
+    </div>
+    <div class="rights-container">Ⓒ 2023, Pitcher, All Rights reserved</div>
   </div>
+
   <div class="hero-container">
-    <p>Hero</p>
+   
+      <svg width="60%" height="60%" xmlns="http://www.w3.org/2000/svg">
+        <image
+          href="../../../../../assets/images/bicycle-workshop.svg"
+          height="100%"
+          width="100%"
+        />
+      </svg>
+    
   </div>
 </div>
