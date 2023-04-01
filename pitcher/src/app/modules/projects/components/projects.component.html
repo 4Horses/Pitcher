@@ -1,14 +1,18 @@
 <div class="body">
-  <div class="container">
-    <div *ngFor="let p of projects" class="card">
-      <div (mouseover)="onHover(p)" (mouseout)="onLeave(p)">
-        <h3 class="title">{{ p.name }}</h3>
-        <div class="bar">
-          <div class="emptybar"></div>
-          <div class="filledbar" [style.--progress]="p.progress"></div>
+  <div class="list-container">
+    <div class="list-header">Your projects</div>
+    <div class="container">
+      <div *ngFor="let p of projects" class="card">
+        <div (mouseover)="onHover(p)" (mouseout)="onLeave(p)">
+          <h3 class="title">{{ p.name }}</h3>
+          <div class="bar">
+            <div class="emptybar"></div>
+            <div class="filledbar" [style.--progress]="p.progress"></div>
+          </div>
+          <p class="description">{{ p.description }}</p>
         </div>
-        <p class="description">{{ p.description }}</p>
       </div>
     </div>
+    <button class="button">Add Project</button>
   </div>
 </div>
