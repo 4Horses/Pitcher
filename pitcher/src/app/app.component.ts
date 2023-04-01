@@ -13,7 +13,6 @@ export class AppComponent {
   constructor(private router: Router) {}
 
   isLogged() {
-    console.log(this.currentRoute);
     return this.router.url != '/login' && this.router.url != '/register';
   }
 }
