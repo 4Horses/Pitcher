@@ -15,7 +15,7 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @Table(name = "user_account", schema = "public", catalog = "pitcher")
-public class UserAccount extends AccountEntity {
+public class UserAccountEntity extends AccountEntity {
 
     @Basic
     @Column(name = "first_name", length = 50)
