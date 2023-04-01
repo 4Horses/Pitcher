@@ -9,7 +9,7 @@ $color-filledbar-gradient: linear-gradient(
     90deg,
     $color-filledbar-start 0%,
     $color-filledbar-middle 65%,
-    $color-filledbar-end 100%
+    $color-filledbar-end 100%,
 );
 
 .body {
@@ -128,14 +128,14 @@ $color-filledbar-gradient: linear-gradient(
     text-overflow: ellipsis;
     -webkit-line-clamp: 4; /* limit to 4 lines */
     line-clamp: 4; /* limit to 4 lines */
-    display: none;
-    transition: display 0.8s ease-in;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    transition: color 0.8s ease-in;
 }
 
 .card:hover .description {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    transition: display 1.2s ease-out;
+    color: $color-active-btn;
+    transition: color 1.2s ease-out;
 }
 
 .list-header {
