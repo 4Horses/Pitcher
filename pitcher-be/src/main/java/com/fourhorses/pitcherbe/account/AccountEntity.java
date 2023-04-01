@@ -1,9 +1,6 @@
 package com.fourhorses.pitcherbe.account;
 
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -11,6 +8,8 @@ import lombok.*;
 @MappedSuperclass
 public class AccountEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     protected Long id;
 
     @Basic
@@ -20,4 +19,8 @@ public class AccountEntity {
     @Basic
     @Column(name = "phone_number", length = 15)
     protected String phoneNumber;
+
+    @Basic
+    @Column(name = "email", length = 50)
+    protected String email;
 }
