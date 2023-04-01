@@ -1,6 +1,6 @@
 package com.fourhorses.pitcherbe.user_account.entity;
 
-import com.fourhorses.pitcherbe.common.account.AccountEntity;
+import com.fourhorses.pitcherbe.account.entity.AccountEntity;
 import com.fourhorses.pitcherbe.project.entity.ProjectEntity;
 import jakarta.persistence.*;
 import lombok.*;
