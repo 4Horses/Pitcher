@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -7,13 +7,25 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  reactiveForm!: FormGroup;
+  public individualForm = new FormGroup({
+    FirstName: new FormControl("", Validators.required),
+    LastName: new FormControl("", Validators.required),
+    Email: new FormControl("", [Validators.required,
+      Validators.pattern("^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"),
+    ]),
+    PhoneNumber: new FormControl("", Validators.required),
+  });
+  public corporateForm = new FormGroup({
+   Name: new FormControl("", Validators.required),
+    Address: new FormControl("", Validators.required),
+    Email: new FormControl("",  [Validators.required,
+      Validators.pattern("^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"),
+    ]),
+    PhoneNumber: new FormControl("", Validators.required),
+  });
   isCorporate = false;
   ngOnInit() {
-    this.reactiveForm = new FormGroup({
-      email: new FormControl(''),
-      password: new FormControl(''),
-    });
+   
   }
   changeTab(role: string) {
     let corporateTab = document.getElementById('corporate');
@@ -43,5 +55,10 @@ export class RegisterComponent {
         return this.isCorporate ? 'active-button' : 'inactive-button';
         break;
     }
+  }
+  isValidForEdit(): boolean {
+    return this.isCorporate
+      ? this.corporateForm.valid
+      : this.individualForm.valid;
   }
 }

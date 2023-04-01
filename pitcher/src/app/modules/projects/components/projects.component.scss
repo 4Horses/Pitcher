@@ -1,0 +1,124 @@
+$color-background: #1b1d43;
+$color-container-bg: #0d0f2f;
+$color-bar-bg: #3d4780;
+$color-filledbar-start: #4d12ad;
+$color-filledbar-middle: #ffc400;
+$color-filledbar-end: #de350a;
+$color-filledbar-gradient: linear-gradient(
+    90deg,
+    $color-filledbar-start 0%,
+    $color-filledbar-middle 65%,
+    $color-filledbar-end 100%
+);
+
+.body {
+    background-color: $color-background;
+    font-family: "Open Sans", sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 5%;
+    display: flex;
+}
+
+.card {
+    display: flex;
+    height: 30%;
+    width: 40%;
+    top: 20%;
+    background-color: $color-container-bg;
+    border-radius: 10px;
+    box-shadow: -1rem 0 2rem #0f0d24;
+    /*   margin-left: -50px; */
+    transition: 0.4s ease-out;
+    position: relative;
+    left: 0px;
+}
+
+.card:not(:first-child) {
+    margin-left: -50px;
+}
+
+.card:hover {
+    transform: translateY(-20px);
+    transition: 0.4s ease-out;
+}
+
+.card:hover ~ .card {
+    position: relative;
+    left: 50px;
+    transition: 0.4s ease-out;
+}
+
+.title {
+    color: white;
+    font-weight: 500;
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    top: 15px;
+    -webkit-line-clamp: 3; /* limit to 3 lines */
+    line-clamp: 3; /* limit to 3 lines */
+    display: -webkit-box;
+    overflow: hidden; /* hide overflow */
+    text-overflow: ellipsis; /* show ellipsis for overflowed text */
+    transition: width 0.6s ease-in;
+}
+
+
+
+.bar {
+    position: absolute;
+    top: 135px;
+    left: 20px;
+    height: 12px;
+    width: 150px;
+    border-radius: 25px;
+}
+
+.emptybar {
+    background-color: $color-background;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+}
+
+.filledbar {
+    position: absolute;
+    top: 0px;
+    z-index: 3;
+    height: 100%;
+    width: 0px;
+    transition: width 0.6s ease-out;
+    background: $color-filledbar-gradient;
+    border-radius: 25px;
+}
+
+.card:hover .filledbar {
+    width: calc(120px * var(--progress) / 100);
+    transition: width 0.4s ease-out;
+}
+
+.card:hover .title {
+    color: rgb(159, 117, 243);
+    transition: width 0.4s ease-out;
+}
+
+.description {
+    color: rgb(206, 206, 206);
+    font-size: 14px;
+    margin-top: 80%;
+    margin-left: 15%;
+    margin-right: 15%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 4; /* limit to 4 lines */
+    line-clamp: 4; /* limit to 4 lines */
+}

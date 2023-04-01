@@ -6,116 +6,243 @@
         <div class="subtitle">Create an account and let's grow up together</div>
       </div>
       <div class="role-container">
-        <button class="btn btn-primary" [ngClass]="getClass('individual')" (click)="changeTab('individual')">
+        <button
+          class="btn btn-primary"
+          [ngClass]="getClass('individual')"
+          (click)="changeTab('individual')"
+        >
           Normal account
         </button>
-        <button class="btn btn-primary" [ngClass]="getClass('corporate')" (click)="changeTab('corporate')">
+        <button
+          class="btn btn-primary"
+          [ngClass]="getClass('corporate')"
+          (click)="changeTab('corporate')"
+        >
           Corporate account
         </button>
       </div>
-      <div id="individual" class="form-container"><form [formGroup]="reactiveForm">
-        <div class="form-group">
-          <label for="exampleInputEmail1">First Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Enter your first name"
-          />
-          <label for="exampleInputEmail1">Last Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Enter your last name"
-          />
-          <label for="exampleInputEmail1">Email</label>
-          <input
-            type="email"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Enter your email"
-          />
-          <label for="exampleInputEmail1">Phone number</label>
-          <input
-            type="number"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Enter your phone number"
-          />
-        </div>
-       
-        <div class="button-container">
-          <button type="submit" class="btn btn-primary register">
-            Register
-          </button>
-        </div>
-        <div class="button-container">
-          <label>Already have an account? </label>
-          <a class="register-text" href="" [routerLink]="['/login']">
-            <b>Login here</b></a
-          >
-        </div>
-      </form></div>
-      <div id="corporate" class="form-container"><form [formGroup]="reactiveForm">
-        <div class="form-group">
-         
-          <label for="exampleInputEmail1">Company Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Enter your company name"
-          />
-          <label for="exampleInputEmail1">Email</label>
-          <input
-            type="email"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Enter your company email"
-          />
-          <label for="exampleInputEmail1">Phone number</label>
-          <input
-            type="number"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Enter your company phone number"
-          />
-          <label for="exampleInputEmail1">Address</label>
-          <input
-            type="text"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Enter your company address"
-          />
-        </div>
-       
-        <div class="button-container">
-          <button type="submit" class="btn btn-primary register">
-            Register
-          </button>
-        </div>
-        <div class="button-container">
-          <label>Already have an account? </label>
-          <a class="register-text" href="" [routerLink]="['/login']">
-            <b>Login here</b></a
-          >
-        </div>
-      </form></div>
-      
+      <div id="individual" class="form-container">
+        <form [formGroup]="individualForm">
+          <div class="form-group">
+            <label for="exampleInputEmail1">*First Name</label>
+            <span
+              *ngIf="
+                individualForm.controls.FirstName.invalid &&
+                (individualForm.controls.FirstName.touched ||
+                  individualForm.controls.FirstName.dirty)
+              "
+              class="text-danger"
+            >
+              Please enter your first name!
+            </span>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputEmail1"
+              formControlName="FirstName"
+              aria-describedby="emailHelp"
+              placeholder="Enter your first name"
+            />
+            <label for="exampleInputEmail1">*Last Name</label>
+            <span
+              *ngIf="
+                individualForm.controls.LastName.invalid &&
+                (individualForm.controls.LastName.touched ||
+                  individualForm.controls.LastName.dirty)
+              "
+              class="text-danger"
+            >
+              Please enter your last name!
+            </span>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputEmail1"
+              formControlName="LastName"
+              aria-describedby="emailHelp"
+              placeholder="Enter your last name"
+            />
+            <label for="exampleInputEmail1">*Email</label>
+            <span
+              *ngIf="
+                individualForm.controls.Email.invalid &&
+                (individualForm.controls.Email.touched ||
+                  individualForm.controls.Email.dirty)
+              "
+              class="text-danger"
+            >
+              Please enter your email!
+            </span>
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              formControlName="Email"
+              aria-describedby="emailHelp"
+              placeholder="Enter your email"
+            />
+            <label for="exampleInputEmail1">*Phone number</label>
+            <span
+              *ngIf="
+                individualForm.controls.PhoneNumber.invalid &&
+                (individualForm.controls.PhoneNumber.touched ||
+                  individualForm.controls.PhoneNumber.dirty)
+              "
+              class="text-danger"
+            >
+              Please enter your phone number!
+            </span>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="PhoneNumber"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Enter your phone number"
+            />
+          </div>
+
+          <div class="button-container">
+            <button type="submit" class="btn btn-primary register" [disabled]="!isValidForEdit()">
+              Register
+            </button>
+          </div>
+          <div class="button-container">
+            <label>Already have an account? </label>
+            <a class="register-text" href="" [routerLink]="['/login']">
+              <b>Login here</b></a
+            >
+          </div>
+        </form>
+      </div>
+      <div id="corporate" class="form-container">
+        <form [formGroup]="corporateForm">
+          <div class="form-group">
+            <label for="exampleInputEmail1">*Company Name</label>
+            <span
+              *ngIf="
+                corporateForm.controls.Name.invalid &&
+                (corporateForm.controls.Name.touched ||
+                  corporateForm.controls.Name.dirty)
+              "
+              class="text-danger"
+            >
+              Please enter your company name!
+            </span>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputEmail1"
+              formControlName="Name"
+              aria-describedby="emailHelp"
+              placeholder="Enter your company name"
+            />
+
+            <label for="exampleInputEmail1">*Email</label>
+            <span
+              *ngIf="
+                corporateForm.controls.Email.invalid &&
+                (corporateForm.controls.Email.touched ||
+                  corporateForm.controls.Email.dirty)
+              "
+              class="text-danger"
+            >
+              Please enter your company email!
+            </span>
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              formControlName="Email"
+              aria-describedby="emailHelp"
+              placeholder="Enter your company email"
+            />
+
+            <label for="exampleInputEmail1">*Phone number</label>
+            <span
+              *ngIf="
+                corporateForm.controls.Name.invalid &&
+                (corporateForm.controls.Name.touched ||
+                  corporateForm.controls.Name.dirty)
+              "
+              class="text-danger"
+            >
+              Please enter your company phone number!
+            </span>
+
+            <input
+              type="number"
+              class="form-control"
+              formControlName="PhoneNumber"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Enter your company phone number"
+            />
+            <label for="exampleInputEmail1">*Address</label>
+            <span
+              *ngIf="
+                corporateForm.controls.Name.invalid &&
+                (corporateForm.controls.Name.touched ||
+                  corporateForm.controls.Name.dirty)
+              "
+              class="text-danger"
+            >
+              Please enter your company address!
+            </span>
+
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputEmail1"
+              formControlName="Address"
+              aria-describedby="emailHelp"
+              placeholder="Enter your company address"
+            />
+          </div>
+
+          <div class="button-container">
+            <button type="submit" class="btn btn-primary register"  [disabled]="!isValidForEdit()">
+              Register
+            </button>
+          </div>
+          <div class="button-container">
+            <label>Already have an account? </label>
+            <a class="register-text" href="" [routerLink]="['/login']">
+              <b>Login here</b></a
+            >
+          </div>
+        </form>
+      </div>
     </div>
     <div class="rights-container">Ⓒ 2023, Pitcher, All Rights reserved</div>
   </div>
 
   <div class="hero-container">
-    <p>Hero</p>
+    <img
+      src="../../../../../assets/images/LOGO3.jpeg"
+      alt="bicycle-workshop"
+      width="25%"
+      style="border-radius: 30px"
+      class="hero-image"
+    />
+    <label class="slogan"><b>Empower your dreams, empower your team!</b></label>
+    <label class="slogan-two"
+      >Be part of a project or create your own project and join a community of
+      like-minded individuals who are dedicated to helping each other grow and
+      succeed.</label
+    >
+
+    <svg
+      width="40%"
+      height="40%"
+      style="margin-bottom: 30px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <image
+        href="../../../../../assets/images/bicycle-workshop.svg"
+        height="100%"
+        width="100%"
+      />
+    </svg>
   </div>
 </div>
