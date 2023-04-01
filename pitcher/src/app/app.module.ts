@@ -8,14 +8,17 @@ import { RegisterComponent } from './features/registration/components/register/r
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { HomeComponent } from './features/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { CategoryPageComponent } from './features/category-page/category-page.component';
+import { CategoryCardComponent } from './shared/components/category-card/category-card.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    HomeComponent
+    HomeComponent,
+    CategoryPageComponent,
+    CategoryCardComponent
   ],
   imports: [
     BrowserModule,
