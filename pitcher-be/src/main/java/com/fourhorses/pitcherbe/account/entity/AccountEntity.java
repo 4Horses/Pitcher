@@ -7,6 +7,8 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "account", schema = "public", catalog = "pitched")
 public class AccountEntity extends BaseEntity {
@@ -19,7 +21,7 @@ public class AccountEntity extends BaseEntity {
     protected String phoneNumber;
 
     @Basic
-    @Column(name = "email", length = 50)
+    @Column(name = "email", unique = true, length = 50)
     protected String email;
 
     @Basic
