@@ -2,11 +2,13 @@ package com.fourhorses.pitcherbe.project.entity;
 
 import com.fourhorses.pitcherbe.category.entity.CategoryEntity;
 import com.fourhorses.pitcherbe.common.base_entity.BaseEntity;
+import com.fourhorses.pitcherbe.organization_account.entity.OrganizationAccountEntity;
 import com.fourhorses.pitcherbe.user_account.entity.UserAccountEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -44,4 +46,22 @@ public class ProjectEntity extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private CategoryEntity category;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "participant",
+            joinColumns = @JoinColumn(name = "project_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id")
+    )
+    @ToString.Exclude
+    private List<UserAccountEntity> participants;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "sponsor",
+            joinColumns = @JoinColumn(name = "project_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "organization_id", referencedColumnName = "id")
+    )
+    @ToString.Exclude
+    private List<OrganizationAccountEntity> organizations;
 }
