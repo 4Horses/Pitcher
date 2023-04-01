@@ -1,0 +1,76 @@
+* {
+  outline: none;
+  box-sizing: border-box;
+}
+
+.job-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.job-card-header svg {
+  width: 30px;
+  height: 30px;
+  border-radius: 20%;
+}
+
+.menu-dot {
+  background-color: black;
+  box-shadow: -6px 0 0 0 black, 6px 0 0 0 black;
+  width: 4px;
+  height: 4px;
+  border: 0;
+  padding: 0;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+.job-card-title {
+  font-weight: 600;
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.job-card-title,
+.job-stat {
+  color: black;
+}
+.job-card-subtitle,
+.job-day {
+  color: black;
+}
+
+.search-buttons {
+  border: 1px lightcyan solid;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 14px;
+}
+
+.job-card-subtitle {
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.job-card {
+  max-width: 300px;
+  width: 300px;
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  background: hsla(206, 100%, 50%, 1);
+  background: linear-gradient(90deg, hsla(206, 100%, 50%, 1) 0%, hsla(198, 100%, 80%, 1) 100%);
+  background: -moz-linear-gradient(90deg, hsla(206, 100%, 50%, 1) 0%, hsla(198, 100%, 80%, 1) 100%);
+  background: -webkit-linear-gradient(90deg, hsla(206, 100%, 50%, 1) 0%, hsla(198, 100%, 80%, 1) 100%);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
+    transform: scale(1.02);
+  }
+}

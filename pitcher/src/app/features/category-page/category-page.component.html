@@ -1,0 +1,12 @@
+<div class="elements-section">
+  <div class="search-bar">
+
+  </div>
+  <ng-container *ngIf="categories.length === 0">
+    <img src="https://www.google.com/search?q=display+an+message+if+nf+for+have+0+elements&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjytpOGyIn-AhXbxAIHHQuMDc8Q_AUoAXoECAEQAw&biw=1260&bih=698&dpr=1.25#imgrc=xPPi0q4L2H1RVM" alt="No posts available">
+  </ng-container>
+  <div class="job-card-list">
+    <app-category-card *ngFor="let category of categories" [category]="category"></app-category-card>
+  </div>
+</div>
+
