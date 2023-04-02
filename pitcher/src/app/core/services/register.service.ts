@@ -16,8 +16,14 @@ export class RegisterService {
   constructor(private http: HttpClient) { }
   
   createUser(user: User) {
-    console.log("In create user service");
-    console.log(user)
     return this.http.post<any>(`http://localhost:8081/user`, user, httpOptions);
+  }
+
+  getAllUsers() {
+    return this.http.get<any>(`http://localhost:8081/user`, httpOptions);
+  }
+
+  updateUser(user: User) {
+    return this.http.patch<any>(`http://localhost:8081/user`, user, httpOptions);
   }
 }
