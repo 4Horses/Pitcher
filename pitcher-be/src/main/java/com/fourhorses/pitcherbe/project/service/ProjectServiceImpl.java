@@ -187,4 +187,11 @@ public class ProjectServiceImpl implements ProjectService {
         return modelMapper.map(projects, new TypeToken<List<ProjectDto>>() {
         }.getType());
     }
+
+    @Override
+    public ProjectDto getProjectById(Long id) {
+        log.info("Getting project by id {}", id);
+        var project = projectRepository.findById(id);
+        return modelMapper.map(project, ProjectDto.class);
+    }
 }
