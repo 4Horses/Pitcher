@@ -20,5 +20,12 @@ export const projectList = [
     'Cooking Project',
     25,
     'Learn new recipes and techniques from top chefs with our cooking project that includes step-by-step videos and interactive tutorials.'
-  )
+  ),
+  new Project(
+    'Cooking Project',
+    25,
+    'Learn new recipes and techniques from top chefs with our cooking project that includes step-by-step videos and interactive tutorials.'
+  ),
+
+ 
 ];
