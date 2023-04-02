@@ -26,6 +26,15 @@ public class ProjectController {
         return new ResponseEntity<>(projects, status);
     }
 
+    @Operation(summary = "Get a project by id")
+    @GetMapping("/{id}")
+    public ResponseEntity<ProjectDto> getProjectById(@PathVariable Long id) {
+        var project =  projectService.getProjectById(id);
+
+        HttpStatus status = project == null ? HttpStatus.NO_CONTENT : HttpStatus.OK;
+        return new ResponseEntity<>(project, status);
+    }
+
     @Operation(summary = "Create a new project")
     @PostMapping()
     public ResponseEntity<ProjectDto> createProject(@Valid @RequestBody ProjectDto projectDto) {
