@@ -1,6 +1,7 @@
 package com.fourhorses.pitcherbe.project.service;
 
 import com.fourhorses.pitcherbe.common.exception.BadRequestException;
+import com.fourhorses.pitcherbe.organization_account.dto.OrganizationAccountDto;
 import com.fourhorses.pitcherbe.project.dto.ProjectDto;
 import com.fourhorses.pitcherbe.project.entity.ProjectEntity;
 import com.fourhorses.pitcherbe.user_account.dto.UserAccountDto;
@@ -29,4 +30,10 @@ public interface ProjectService {
     UserAccountDto addParticipant(Long projectId, UserAccountDto userAccountDto) throws BadRequestException;
 
     void removeParticipant(Long projectId, UserAccountDto userAccountDto) throws BadRequestException;
+
+    List<OrganizationAccountDto> getSponsors(Long projectId);
+
+    OrganizationAccountDto addSponsor(Long projectId, OrganizationAccountDto organizationAccountDto) throws BadRequestException;
+
+    void removeSponsor(Long projectId, OrganizationAccountDto organizationAccountDto) throws BadRequestException;
 }
