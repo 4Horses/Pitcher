@@ -1,20 +1,8 @@
-$color-background: #1b1d43;
-$color-container-bg: #0d0f2f;
-$color-bar-bg: #3d4780;
-$color-filledbar-start: #4d12ad;
-$color-active-btn: #7a85bf;
-$color-filledbar-middle: #ffc400;
-$color-filledbar-end: #de350a;
-$color-filledbar-gradient: linear-gradient(
-    90deg,
-    $color-filledbar-start 0%,
-    $color-filledbar-middle 65%,
-    $color-filledbar-end 100%,
-);
+@import '../../../../../styles.scss';
 
 .body {
     padding-top: 5%;
-    background-color: $color-background;
+    background-color: $color-bg-primary;
     font-family: "Open Sans", sans-serif;
     width: 100%;
     height: 100%;
@@ -42,7 +30,7 @@ $color-filledbar-gradient: linear-gradient(
     display: flex;
     height: 200px;
     width: 400px;
-    background-color: $color-container-bg;
+    background-color: $color-bg-secondary;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.1);
     /*   margin-left: -50px; */
@@ -94,7 +82,7 @@ $color-filledbar-gradient: linear-gradient(
 }
 
 .emptybar {
-    background-color: $color-background;
+    background-color: $color-bg-primary;
     width: 100%;
     height: 100%;
     border-radius: 25px;
@@ -107,7 +95,7 @@ $color-filledbar-gradient: linear-gradient(
     height: 100%;
     width: 0px;
     transition: width 0.6s ease-out;
-    background: $color-filledbar-gradient;
+    background: $color-progress-gradient;
     border-radius: 25px;
 }
 
@@ -137,7 +125,7 @@ $color-filledbar-gradient: linear-gradient(
 }
 
 .card:hover .description {
-    color: $color-active-btn;
+    color: $color-action-secondary;
     transition: color 1.2s ease-out;
 }
 
@@ -154,7 +142,7 @@ $color-filledbar-gradient: linear-gradient(
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: $color-container-bg;
+    background-color: $color-bg-secondary;
     color: #fff;
     font-size: 16px;
     font-weight: 600;
@@ -164,10 +152,14 @@ $color-filledbar-gradient: linear-gradient(
     transition: background-color 0.3s ease;
 
     &:hover {
-        background-color: $color-bar-bg;
+        background-color: $color-bg-tertiary;
     }
 
     &:active {
-        background-color: $color-active-btn;
+        background-color: $color-action-secondary;
     }
+}
+
+.modal{
+    background-color: $color-bg-primary;
 }
