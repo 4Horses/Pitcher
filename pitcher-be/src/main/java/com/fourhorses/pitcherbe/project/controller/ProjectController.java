@@ -41,4 +41,13 @@ public class ProjectController {
         projectService.deleteProject(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @Operation(summary = "Get all projects by category id")
+    @GetMapping("/category/{id}")
+    public ResponseEntity<List<ProjectDto>> getProjectsByCategoryId(@PathVariable Long id) {
+        var projects =  projectService.getProjectsByCategoryId(id);
+
+        HttpStatus status = projects.isEmpty() ? HttpStatus.NO_CONTENT : HttpStatus.OK;
+        return new ResponseEntity<>(projects, status);
+    }
 }
