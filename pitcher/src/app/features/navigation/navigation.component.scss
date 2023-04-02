@@ -9,6 +9,10 @@ $color-background: #1b1d43;
   $nav-width: 100%;
 }
 
+.mat-sidenav{
+    background-color: #0d0f2f;
+}
+
 .full-height {
     height: 100%;
     background-color: $color-background;
@@ -21,4 +25,7 @@ $color-background: #1b1d43;
 .with-icon {
     display: flex;
     align-items: center;
+}
+.mat-icon{
+    color: #fafafa;
 }

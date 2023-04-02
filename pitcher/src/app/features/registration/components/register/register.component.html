@@ -24,7 +24,7 @@
       <div id="individual" class="form-container">
         <form [formGroup]="individualForm">
           <div class="form-group">
-            <label for="exampleInputEmail1">*First Name</label>
+            <label for="firstName">*First Name</label>
             <span
               *ngIf="
                 individualForm.controls.FirstName.invalid &&
@@ -38,12 +38,12 @@
             <input
               type="text"
               class="form-control"
-              id="exampleInputEmail1"
+              id="firstName"
               formControlName="FirstName"
               aria-describedby="emailHelp"
               placeholder="Enter your first name"
             />
-            <label for="exampleInputEmail1">*Last Name</label>
+            <label for="lastName">*Last Name</label>
             <span
               *ngIf="
                 individualForm.controls.LastName.invalid &&
@@ -57,31 +57,13 @@
             <input
               type="text"
               class="form-control"
-              id="exampleInputEmail1"
+              id="lastName"
               formControlName="LastName"
               aria-describedby="emailHelp"
               placeholder="Enter your last name"
             />
-            <label for="exampleInputEmail1">*Email</label>
-            <span
-              *ngIf="
-                individualForm.controls.Email.invalid &&
-                (individualForm.controls.Email.touched ||
-                  individualForm.controls.Email.dirty)
-              "
-              class="text-danger"
-            >
-              Please enter your email!
-            </span>
-            <input
-              type="email"
-              class="form-control"
-              id="exampleInputEmail1"
-              formControlName="Email"
-              aria-describedby="emailHelp"
-              placeholder="Enter your email"
-            />
-            <label for="exampleInputEmail1">*Phone number</label>
+
+            <label for="PhoneNumberIndividual">*Phone number</label>
             <span
               *ngIf="
                 individualForm.controls.PhoneNumber.invalid &&
@@ -96,14 +78,62 @@
               type="number"
               class="form-control"
               formControlName="PhoneNumber"
-              id="exampleInputEmail1"
+              id="PhoneNumberIndividual"
               aria-describedby="emailHelp"
               placeholder="Enter your phone number"
+            />
+
+            <label for="individualEmail">*Email</label>
+            <span
+              *ngIf="
+                individualForm.controls.Email.invalid &&
+                (individualForm.controls.Email.touched ||
+                  individualForm.controls.Email.dirty)
+              "
+              class="text-danger"
+            >
+              Please enter your email!
+            </span>
+            <input
+              type="email"
+              class="form-control"
+              id="individualEmail"
+              formControlName="Email"
+              aria-describedby="emailHelp"
+              placeholder="Enter your email"
+            />
+            <label for="individualPassword">*Password</label>
+            <span
+              *ngIf="
+                individualForm.controls.Password.invalid &&
+                (individualForm.controls.Password.touched ||
+                  individualForm.controls.Password.dirty)
+              "
+              class="text-danger"
+            >
+            <br>
+            A password should be alphanumeric. <br>First letter of the password
+            should be capital.<br> Password must contain a special character (@,
+            $, !, &, etc). <br>Password length must be greater than 8 characters.
+           <br>
+            </span>
+            <input
+              type="password"
+              class="form-control"
+              formControlName="Password"
+              id="individualPassword"
+              aria-describedby="emailHelp"
+              placeholder="Enter your password"
             />
           </div>
 
           <div class="button-container">
-            <button type="submit" class="btn btn-primary register" [disabled]="!isValidForEdit()">
+            <button
+              type="submit"
+              class="btn btn-primary register"
+              [disabled]="!isValidForEdit()"
+              (click)="createUserAccount()"
+            >
               Register
             </button>
           </div>
@@ -118,7 +148,7 @@
       <div id="corporate" class="form-container">
         <form [formGroup]="corporateForm">
           <div class="form-group">
-            <label for="exampleInputEmail1">*Company Name</label>
+            <label for="companyName">*Company Name</label>
             <span
               *ngIf="
                 corporateForm.controls.Name.invalid &&
@@ -132,38 +162,18 @@
             <input
               type="text"
               class="form-control"
-              id="exampleInputEmail1"
+              id="companyName"
               formControlName="Name"
               aria-describedby="emailHelp"
               placeholder="Enter your company name"
             />
 
-            <label for="exampleInputEmail1">*Email</label>
+            <label for="phoneNumberCorporate">*Phone number</label>
             <span
               *ngIf="
-                corporateForm.controls.Email.invalid &&
-                (corporateForm.controls.Email.touched ||
-                  corporateForm.controls.Email.dirty)
-              "
-              class="text-danger"
-            >
-              Please enter your company email!
-            </span>
-            <input
-              type="email"
-              class="form-control"
-              id="exampleInputEmail1"
-              formControlName="Email"
-              aria-describedby="emailHelp"
-              placeholder="Enter your company email"
-            />
-
-            <label for="exampleInputEmail1">*Phone number</label>
-            <span
-              *ngIf="
-                corporateForm.controls.Name.invalid &&
-                (corporateForm.controls.Name.touched ||
-                  corporateForm.controls.Name.dirty)
+                corporateForm.controls.PhoneNumber.invalid &&
+                (corporateForm.controls.PhoneNumber.touched ||
+                  corporateForm.controls.PhoneNumber.dirty)
               "
               class="text-danger"
             >
@@ -174,11 +184,11 @@
               type="number"
               class="form-control"
               formControlName="PhoneNumber"
-              id="exampleInputEmail1"
+              id="phoneNumberCorporate"
               aria-describedby="emailHelp"
               placeholder="Enter your company phone number"
             />
-            <label for="exampleInputEmail1">*Address</label>
+            <label for="corporateAddress">*Address</label>
             <span
               *ngIf="
                 corporateForm.controls.Name.invalid &&
@@ -193,15 +203,62 @@
             <input
               type="text"
               class="form-control"
-              id="exampleInputEmail1"
+              id="corporateAddress"
               formControlName="Address"
               aria-describedby="emailHelp"
               placeholder="Enter your company address"
             />
+            <label for="corporateEmail">*Email</label>
+            <span
+              *ngIf="
+                corporateForm.controls.Email.invalid &&
+                (corporateForm.controls.Email.touched ||
+                  corporateForm.controls.Email.dirty)
+              "
+              class="text-danger"
+            >
+              Please enter your company email!
+            </span>
+            <input
+              type="email"
+              class="form-control"
+              id="corporateEmail"
+              formControlName="Email"
+              aria-describedby="emailHelp"
+              placeholder="Enter your company email"
+            />
+            <label for="corporatePassword">*Password</label>
+            <span
+              *ngIf="
+                corporateForm.controls.Password.invalid &&
+                (corporateForm.controls.Password.touched ||
+                  corporateForm.controls.Password.dirty)
+              "
+              class="text-danger"
+            ><br>
+              A password should be alphanumeric. <br>First letter of the password
+              should be capital.<br> Password must contain a special character (@,
+              $, !, &, etc). <br>Password length must be greater than 8 characters.
+             <br>
+            </span>
+          
+            <input
+              type="password"
+              class="form-control"
+              id="corporatePassword"
+              formControlName="Password"
+              aria-describedby="emailHelp"
+              placeholder="Enter your password"
+            />
           </div>
 
           <div class="button-container">
-            <button type="submit" class="btn btn-primary register"  [disabled]="!isValidForEdit()">
+            <button
+              type="submit"
+              class="btn btn-primary register"
+              [disabled]="!isValidForEdit()"
+              (click)="createCorporateAccount()"
+            >
               Register
             </button>
           </div>

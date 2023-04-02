@@ -2,6 +2,7 @@ package com.fourhorses.pitcherbe.account.controller;
 
 import com.fourhorses.pitcherbe.account.dto.LoginDto;
 import com.fourhorses.pitcherbe.account.service.AccountService;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AccountController {
     private final AccountService accountService;
 
+    @Operation(summary = "Log in to the system")
     @PostMapping
     public ResponseEntity<Void> longin(@Valid @RequestBody LoginDto loginDto) {
         HttpStatus status = accountService.login(loginDto).isPresent() ? HttpStatus.OK : HttpStatus.FORBIDDEN;

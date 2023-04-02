@@ -1,11 +1,4 @@
-export class Project {
-  constructor(
-    public name: string,
-    public progress: number,
-    public description: string,
-    public isHovered = false
-  ) {}
-}
+import { Project } from "../../project";
 
 export const projectList = [
   new Project(
@@ -27,20 +20,5 @@ export const projectList = [
     'Cooking Project',
     25,
     'Learn new recipes and techniques from top chefs with our cooking project that includes step-by-step videos and interactive tutorials.'
-  ),
-  new Project(
-    'Gardening Project',
-    50,
-    'Grow your own organic produce and cultivate a beautiful garden with our gardening project that provides expert tips and guidance.'
-  ),
-  new Project(
-    'Language Learning App',
-    75,
-    'Master a new language with our language learning app that uses gamification and interactive exercises to make learning fun and effective.'
-  ),
-  new Project(
-    'Home Automation Project',
-    80,
-    'Upgrade your home with smart devices and automate your daily routines with our home automation project that provides easy-to-follow instructions and tutorials.'
-  ),
+  )
 ];

@@ -23,7 +23,7 @@ const routes: Routes = [
   {
     path: 'projects',
     loadChildren: () =>
-      import('./modules/projects/projects.module').then(
+      import('./modules/project/projects.module').then(
         (m) => m.ProjectsModule
       ),
   },

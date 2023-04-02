@@ -24,6 +24,8 @@ public class UserAccountServiceImpl implements UserAccountService {
 
     @Override
     public UserAccountDto register(UserAccountDto userAccountDto) {
+        log.info("Registering user account {}", userAccountDto);
+
         UserAccountEntity userAccountEntity = UserAccountEntity.builder()
                 .firstName(userAccountDto.getFirstName())
                 .lastName(userAccountDto.getLastName())
@@ -39,18 +41,24 @@ public class UserAccountServiceImpl implements UserAccountService {
 
     @Override
     public UserAccountEntity getUserAccountEntityById(Long id) {
+        log.info("Getting user account entity by id {}", id);
+
         return userAccountRepository.findById(id)
                 .orElseThrow(() -> new BusinessException("User not found"));
     }
 
     @Override
     public UserAccountDto getUserAccountById(Long id) {
+        log.info("Getting user account by id {}", id);
+
         var userAccount = getUserAccountEntityById(id);
         return modelMapper.map(userAccount, UserAccountDto.class);
     }
 
     @Override
     public List<UserAccountDto> getAllUserAccount() {
+        log.info("Getting all user accounts");
+
         var userAccounts = userAccountRepository.findAll();
         return modelMapper.map(userAccounts, new TypeToken<List<UserAccountDto>>() {
         }.getType());
@@ -58,6 +66,8 @@ public class UserAccountServiceImpl implements UserAccountService {
 
     @Override
     public UserAccountDto updateUserAccount(UserAccountDto userAccountDto) {
+        log.info("Updating user account");
+
         UserAccountEntity userAccountEntity = getUserAccountEntityById(userAccountDto.getId());
         userAccountEntity.setFirstName(userAccountDto.getFirstName());
         userAccountEntity.setLastName(userAccountDto.getLastName());
@@ -68,5 +78,30 @@ public class UserAccountServiceImpl implements UserAccountService {
 
         var savedUser = userAccountRepository.save(userAccountEntity);
         return modelMapper.map(savedUser, UserAccountDto.class);
+    }
+
+    @Override
+    public Long countUserAccountProfileCompletion(Long userId) {
+        log.info("Counting user account profile completion");
+
+        var userAccount = getUserAccountEntityById(userId);
+        var count = 0L;
+
+        if (userAccount.getFirstName() != null) {
+            count++;
+        }
+        if (userAccount.getLastName() != null) {
+            count++;
+        }
+        if (userAccount.getAddress() != null) {
+            count++;
+        }
+        if (userAccount.getPhoneNumber() != null) {
+            count++;
+        }
+        if (userAccount.getEmail() != null) {
+            count++;
+        }
+        return count;
     }
 }

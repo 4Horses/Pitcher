@@ -2,38 +2,47 @@ $color-background: #1b1d43;
 $color-container-bg: #0d0f2f;
 $color-bar-bg: #3d4780;
 $color-filledbar-start: #4d12ad;
+$color-active-btn: #7a85bf;
 $color-filledbar-middle: #ffc400;
 $color-filledbar-end: #de350a;
 $color-filledbar-gradient: linear-gradient(
     90deg,
     $color-filledbar-start 0%,
     $color-filledbar-middle 65%,
-    $color-filledbar-end 100%
+    $color-filledbar-end 100%,
 );
 
 .body {
+    padding-top: 5%;
     background-color: $color-background;
     font-family: "Open Sans", sans-serif;
     width: 100%;
     height: 100%;
 }
 
+.list-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
 .container {
     position: absolute;
-    height: 100%;
-    width: 100%;
-    left: 5%;
+    left: 0;
+    right: 0;
+    margin: auto;
     display: flex;
 }
 
 .card {
     display: flex;
-    height: 30%;
-    width: 40%;
-    top: 20%;
+    height: 200px;
+    width: 400px;
     background-color: $color-container-bg;
     border-radius: 10px;
-    box-shadow: -1rem 0 2rem #0f0d24;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.1);
     /*   margin-left: -50px; */
     transition: 0.4s ease-out;
     position: relative;
@@ -41,17 +50,18 @@ $color-filledbar-gradient: linear-gradient(
 }
 
 .card:not(:first-child) {
-    margin-left: -50px;
+    margin-left: -100px;
 }
 
 .card:hover {
     transform: translateY(-20px);
     transition: 0.4s ease-out;
+    box-shadow: 0 0 30px 2px rgba(88, 76, 219, 0.35);
 }
 
 .card:hover ~ .card {
     position: relative;
-    left: 50px;
+    left: 130px;
     transition: 0.4s ease-out;
 }
 
@@ -70,14 +80,13 @@ $color-filledbar-gradient: linear-gradient(
     transition: width 0.6s ease-in;
 }
 
-
-
 .bar {
     position: absolute;
-    top: 135px;
-    left: 20px;
+    top: 65px;
     height: 12px;
-    width: 150px;
+    left: 5%;
+    right: 5%;
+    width: 320px;
     border-radius: 25px;
 }
 
@@ -100,7 +109,7 @@ $color-filledbar-gradient: linear-gradient(
 }
 
 .card:hover .filledbar {
-    width: calc(120px * var(--progress) / 100);
+    width: calc(320px * (var(--progress) / 100));
     transition: width 0.4s ease-out;
 }
 
@@ -112,13 +121,49 @@ $color-filledbar-gradient: linear-gradient(
 .description {
     color: rgb(206, 206, 206);
     font-size: 14px;
-    margin-top: 80%;
-    margin-left: 15%;
-    margin-right: 15%;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
+    margin-top: 100px;
+    margin-left: 10%;
+    margin-right: 10%;
     overflow: hidden;
     text-overflow: ellipsis;
     -webkit-line-clamp: 4; /* limit to 4 lines */
     line-clamp: 4; /* limit to 4 lines */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    transition: color 0.8s ease-in;
+}
+
+.card:hover .description {
+    color: $color-active-btn;
+    transition: color 1.2s ease-out;
+}
+
+.list-header {
+    color: white;
+    font-weight: 900;
+    transition: display 0.8s ease-in;
+    font-size: 48px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: $color-container-bg;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: $color-bar-bg;
+    }
+
+    &:active {
+        background-color: $color-active-btn;
+    }
 }
