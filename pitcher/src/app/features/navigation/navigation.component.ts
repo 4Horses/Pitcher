@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { menuList } from './menu-list';
+import { MenuItem, menuList } from './menu-list';
 
 @Component({
   selector: 'app-navigation',
@@ -16,5 +16,13 @@ export class NavigationComponent implements OnInit {
 
   toggleSidebar() {
     this.collapse = !this.collapse;
+  }
+
+  onClickMenuItem(event: MouseEvent, menuItem: MenuItem) {
+    event.stopPropagation();
+    this.sideMenu.forEach((item) => {
+      item.isActive = false;
+    });
+    menuItem.isActive = true;
   }
 }

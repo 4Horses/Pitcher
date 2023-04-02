@@ -1,0 +1,58 @@
+@import "../../../../../styles.scss";
+
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: $color-bg-primary;
+    text-align: center;
+    /* Add the following styles to make the children take up all vertical space */
+    > * {
+        flex-grow: 1;
+    }
+}
+
+.title {
+    color: white;
+    font-weight: 900;
+    transition: display 0.8s ease-in;
+    font-size: 48px;
+}
+
+form {
+    padding-top: 5%;
+    padding-left: 15%;
+    padding-right: 15%;
+    height: 100%;
+}
+
+textarea {
+    height: calc(1.5em + 6 * 1.25rem); // Increase by 3 lines
+    resize: vertical; // Allow vertical resizing
+}
+
+.button {
+    margin-top: 170px;
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: $color-bg-secondary;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: $color-bg-tertiary;
+    }
+
+    &:active {
+        background-color: $color-action-secondary;
+    }
+}

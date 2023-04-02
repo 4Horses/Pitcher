@@ -40,4 +40,6 @@ public interface ProjectRepository extends JpaRepository<ProjectEntity, Long> {
             AND p.endDate < CURRENT_DATE
             """)
     Long countCompletedProjects(Long userId);
+
+    List<ProjectEntity> findAllByCategoryIdAndIsDeletedFalse(Long categoryId);
 }

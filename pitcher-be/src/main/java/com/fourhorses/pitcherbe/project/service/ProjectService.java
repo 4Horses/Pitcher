@@ -36,4 +36,6 @@ public interface ProjectService {
     OrganizationAccountDto addSponsor(Long projectId, OrganizationAccountDto organizationAccountDto) throws BadRequestException;
 
     void removeSponsor(Long projectId, OrganizationAccountDto organizationAccountDto) throws BadRequestException;
+
+    List<ProjectDto> getProjectsByCategoryId(Long categoryId);
 }

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { projectList } from './projectList';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
@@ -15,8 +15,8 @@ import * as moment from 'moment';
   styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent {
-  projects: Project[];
-  @ViewChild(NewProjectComponent) newProjectModal!: NewProjectComponent;
+  projects = projectList;
+  @ViewChild('newProjectModal') newProjectModal!: NewProjectComponent;
 
   constructor(
     private router: Router,
@@ -59,10 +59,10 @@ export class ProjectsComponent {
 
   createProject() {
     const dialogRef = this.dialog.open(NewProjectComponent, {
-      width: '450px',
+      width: '860px',
+      height: '640px',
       data: {},
     });
-
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.projects.push(result);

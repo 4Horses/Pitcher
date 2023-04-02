@@ -179,4 +179,12 @@ public class ProjectServiceImpl implements ProjectService {
         project.getOrganizations().remove(organizationAccount);
         projectRepository.save(project);
     }
+
+    @Override
+    public List<ProjectDto> getProjectsByCategoryId(Long categoryId) {
+        log.info("Getting projects by category id {}", categoryId);
+        var projects = projectRepository.findAllByCategoryIdAndIsDeletedFalse(categoryId);
+        return modelMapper.map(projects, new TypeToken<List<ProjectDto>>() {
+        }.getType());
+    }
 }

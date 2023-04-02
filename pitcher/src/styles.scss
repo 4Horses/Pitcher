@@ -55,3 +55,17 @@ body {
 }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300i,400");
+
+$color-bg-primary: #1b1d43;
+$color-bg-secondary: #0d0f2f;
+$color-bg-tertiary: #3d4780;
+$color-action-primary: #4d12ad;
+$color-action-secondary: #7a85bf;
+$color-action-tertiary: #ffc400;
+$color-accent: #de350a;
+$color-progress-gradient: linear-gradient(
+    90deg,
+    $color-action-primary 0%,
+    $color-action-tertiary 65%,
+    $color-accent 100%,
+);

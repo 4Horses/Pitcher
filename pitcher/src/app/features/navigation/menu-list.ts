@@ -1,16 +1,17 @@
 export class MenuItem {
-    constructor(
-        public name: string,
-        public route: string,
-        public toolTip: string,
-        public icon: string = ''
-    ) {}
+  constructor(
+    public name: string,
+    public route: string,
+    public toolTip: string,
+    public icon: string = '',
+    public isActive: boolean = false
+  ) {}
 }
 
 export const menuList = [
-    new MenuItem('Profile', 'profile', 'Your Profile', 'science'),
-    new MenuItem('Dashboard', 'projects/all', 'Home', 'biotech'),
-    new MenuItem('Projects', 'projects', 'Projects', 'calculate'),
-    new MenuItem('Badges', 'statistics', 'Statistics', 'star'),
-    new MenuItem('Categories', 'settings', 'Settings', 'label_outline'),
+  new MenuItem('Profile', 'profile', 'Your Profile', 'account_circle'),
+  new MenuItem('Dashboard', 'dashboard', 'Dashboard', 'dashboards'),
+  new MenuItem('Projects', 'projects', 'Projects', 'design_services'),
+  new MenuItem('Badges', 'statistics', 'Statistics', 'military_tech'),
+  new MenuItem('Categories', 'settings', 'Settings', 'category'),
 ];
