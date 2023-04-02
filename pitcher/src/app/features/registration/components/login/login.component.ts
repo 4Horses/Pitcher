@@ -30,7 +30,9 @@ export class LoginComponent {
 
   login() {
    
-   this.router.navigate([`/home`]);
+   this.router.navigate([`/projects/all`]);
+   localStorage.setItem('accessToken', '1234567890');
+
     this.authenticationService
     .login(
       this.reactiveForm.controls.email.value!,
@@ -38,9 +40,7 @@ export class LoginComponent {
     ).pipe(first())
       .subscribe((data) => {
         this.router.navigate([`/home`]);
-        localStorage.setItem('accessToken', '1234567890');
+       
       });
-
-    
   }
 }

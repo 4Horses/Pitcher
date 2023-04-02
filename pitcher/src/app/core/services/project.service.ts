@@ -18,7 +18,7 @@ export class ProjectService {
     return this.http.post<any>(`http://localhost:8081/projects`, project, httpOptions);
   }
 
-  getAllUsers() {
+  getAllProjects() {
     return this.http.get<any>(`http://localhost:8081/projects`, httpOptions);
   }
 

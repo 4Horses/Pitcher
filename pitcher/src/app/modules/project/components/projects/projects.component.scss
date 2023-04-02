@@ -1,5 +1,28 @@
+$color-background: #1b1d43;
+$color-container-bg: #0d0f2f;
+$color-bar-bg: #3d4780;
+$color-filledbar-start: #4d12ad;
+$color-active-btn: #7a85bf;
+$color-filledbar-middle: #ffc400;
+$color-filledbar-end: #de350a;
+$color-filledbar-gradient: linear-gradient(
+    90deg,
+    $color-filledbar-start 0%,
+    $color-filledbar-middle 65%,
+    $color-filledbar-end 100%,
+);
+.logout-container{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    width: 100%;
+}
+hr{
+    border: 1px solid #fafafa;
+    width: 80%;
 @import '../../../../../styles.scss';
 
+}
 .body {
     padding-top: 5%;
     background-color: $color-bg-primary;
@@ -133,12 +156,12 @@
     color: white;
     font-weight: 900;
     transition: display 0.8s ease-in;
-    font-size: 48px;
+    font-size: 40px;
 }
 
 .button {
     display: inline-block;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
