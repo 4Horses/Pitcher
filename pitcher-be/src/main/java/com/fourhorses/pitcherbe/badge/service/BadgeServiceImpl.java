@@ -25,6 +25,7 @@ public class BadgeServiceImpl implements BadgeService {
                 .completedProjects(projectService.countCompletedProjectsByUserId(id))
                 .sponsoredProjects(projectService.countSponsoredProjectsByAccountId(id))
                 .createdProjects(projectService.countCreatedProjectsByUserId(id))
+                .categoryFrequency(categoryService.getCategoryFrequencyByUserId(id))
                 .build();
     }
 }
