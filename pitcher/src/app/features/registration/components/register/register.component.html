@@ -24,7 +24,7 @@
       <div id="individual" class="form-container">
         <form [formGroup]="individualForm">
           <div class="form-group">
-            <label for="exampleInputEmail1">*First Name</label>
+            <label for="firstName">*First Name</label>
             <span
               *ngIf="
                 individualForm.controls.FirstName.invalid &&
@@ -38,12 +38,12 @@
             <input
               type="text"
               class="form-control"
-              id="exampleInputEmail1"
+              id="firstName"
               formControlName="FirstName"
               aria-describedby="emailHelp"
               placeholder="Enter your first name"
             />
-            <label for="exampleInputEmail1">*Last Name</label>
+            <label for="lastName">*Last Name</label>
             <span
               *ngIf="
                 individualForm.controls.LastName.invalid &&
@@ -57,13 +57,13 @@
             <input
               type="text"
               class="form-control"
-              id="exampleInputEmail1"
+              id="lastName"
               formControlName="LastName"
               aria-describedby="emailHelp"
               placeholder="Enter your last name"
             />
 
-            <label for="exampleInputEmail1">*Phone number</label>
+            <label for="PhoneNumberIndividual">*Phone number</label>
             <span
               *ngIf="
                 individualForm.controls.PhoneNumber.invalid &&
@@ -78,12 +78,12 @@
               type="number"
               class="form-control"
               formControlName="PhoneNumber"
-              id="exampleInputEmail1"
+              id="PhoneNumberIndividual"
               aria-describedby="emailHelp"
               placeholder="Enter your phone number"
             />
 
-            <label for="exampleInputEmail1">*Email</label>
+            <label for="individualEmail">*Email</label>
             <span
               *ngIf="
                 individualForm.controls.Email.invalid &&
@@ -97,12 +97,12 @@
             <input
               type="email"
               class="form-control"
-              id="exampleInputEmail1"
+              id="individualEmail"
               formControlName="Email"
               aria-describedby="emailHelp"
               placeholder="Enter your email"
             />
-            <label for="exampleInputEmail1">*Password</label>
+            <label for="individualPassword">*Password</label>
             <span
               *ngIf="
                 individualForm.controls.Password.invalid &&
@@ -121,7 +121,7 @@
               type="password"
               class="form-control"
               formControlName="Password"
-              id="exampleInputEmail1"
+              id="individualPassword"
               aria-describedby="emailHelp"
               placeholder="Enter your password"
             />
@@ -148,7 +148,7 @@
       <div id="corporate" class="form-container">
         <form [formGroup]="corporateForm">
           <div class="form-group">
-            <label for="exampleInputEmail1">*Company Name</label>
+            <label for="companyName">*Company Name</label>
             <span
               *ngIf="
                 corporateForm.controls.Name.invalid &&
@@ -162,13 +162,13 @@
             <input
               type="text"
               class="form-control"
-              id="exampleInputEmail1"
+              id="companyName"
               formControlName="Name"
               aria-describedby="emailHelp"
               placeholder="Enter your company name"
             />
 
-            <label for="exampleInputEmail1">*Phone number</label>
+            <label for="phoneNumberCorporate">*Phone number</label>
             <span
               *ngIf="
                 corporateForm.controls.PhoneNumber.invalid &&
@@ -184,11 +184,11 @@
               type="number"
               class="form-control"
               formControlName="PhoneNumber"
-              id="exampleInputEmail1"
+              id="phoneNumberCorporate"
               aria-describedby="emailHelp"
               placeholder="Enter your company phone number"
             />
-            <label for="exampleInputEmail1">*Address</label>
+            <label for="corporateAddress">*Address</label>
             <span
               *ngIf="
                 corporateForm.controls.Name.invalid &&
@@ -203,12 +203,12 @@
             <input
               type="text"
               class="form-control"
-              id="exampleInputEmail1"
+              id="corporateAddress"
               formControlName="Address"
               aria-describedby="emailHelp"
               placeholder="Enter your company address"
             />
-            <label for="exampleInputEmail1">*Email</label>
+            <label for="corporateEmail">*Email</label>
             <span
               *ngIf="
                 corporateForm.controls.Email.invalid &&
@@ -222,12 +222,12 @@
             <input
               type="email"
               class="form-control"
-              id="exampleInputEmail1"
+              id="corporateEmail"
               formControlName="Email"
               aria-describedby="emailHelp"
               placeholder="Enter your company email"
             />
-            <label for="exampleInputEmail1">*Password</label>
+            <label for="corporatePassword">*Password</label>
             <span
               *ngIf="
                 corporateForm.controls.Password.invalid &&
@@ -245,7 +245,7 @@
             <input
               type="password"
               class="form-control"
-              id="exampleInputEmail1"
+              id="corporatePassword"
               formControlName="Password"
               aria-describedby="emailHelp"
               placeholder="Enter your password"
@@ -257,6 +257,7 @@
               type="submit"
               class="btn btn-primary register"
               [disabled]="!isValidForEdit()"
+              (click)="createCorporateAccount()"
             >
               Register
             </button>

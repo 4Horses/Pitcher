@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { first } from 'rxjs';
 import { User } from 'src/app/core/models/user.model';
 import { RegisterService } from 'src/app/core/services/register.service';
 
@@ -38,7 +40,7 @@ export class RegisterComponent {
 
   });
   isCorporate = false;
-  constructor(private registerService: RegisterService) {}
+  constructor(private registerService: RegisterService, private router: Router,) {}
   ngOnInit() {}
   changeTab(role: string) {
     let corporateTab = document.getElementById('corporate');
@@ -77,11 +79,27 @@ export class RegisterComponent {
 
   createUserAccount() {
     console.log("In create user account");
+    const user: User = {
+      firstName: Number(this.individualForm.controls.FirstName.value),
+      lastName: this.individualForm.controls.LastName.value!,
+      email: this.individualForm.controls.Email.value!,
+      phoneNumber: this.individualForm.controls.PhoneNumber.value!,
+      password: this.individualForm.controls.Password.value!,
+      address: ""
+    }
     this.registerService
-      .createUser(this.individualForm.value as User)
+      .createUser(user).pipe(first())
       .subscribe((data) => {
-      
         console.log(data);
+        this.router.navigate([`/login`]);
       });
+  }
+  createCorporateAccount()  {
+    // this.registerService
+    //   .createUser(this.corporateForm.value as User)
+    //   .subscribe((data) => {
+      
+    //     console.log(data);
+    //   });
   }
 }
