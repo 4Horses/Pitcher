@@ -1,1 +1,29 @@
-<p>statistics works!</p>
+<div class="main-container">
+  <div class="text">
+    <div class="title">
+      <p>
+        Here are your achievements! Thank you for trying every day to be better
+        version of you 😊
+      </p>
+    </div>
+
+    <div class="subtitle">
+      <p>You have completed 5 out of 10 possible achievements 🎉</p>
+    </div>
+  </div>
+
+  <div class="badges-container">
+    <div class="main-container">
+      <app-badge-icon
+        *ngFor="let badge of badges"
+        [imagePath]="badge"
+      ></app-badge-icon>
+    </div>
+  </div>
+
+  <img
+    class="planet"
+    src="../../../../assets/images/planet-3d.svg"
+    alt="achievements"
+  />
+</div>

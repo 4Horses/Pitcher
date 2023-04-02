@@ -11,6 +11,6 @@ export const menuList = [
     new MenuItem('Profile', 'profile', 'Your Profile', 'science'),
     new MenuItem('Dashboard', 'dashboard', 'Dashboard', 'biotech'),
     new MenuItem('Projects', 'projects', 'Projects', 'calculate'),
-    new MenuItem('Statistics', 'statistics', 'Statistics', 'flash_on'),
-    new MenuItem('Settings', 'settings', 'Settings', 'flash_on'),
+    new MenuItem('Badges', 'statistics', 'Statistics', 'star'),
+    new MenuItem('Categories', 'settings', 'Settings', 'label_outline'),
 ];
