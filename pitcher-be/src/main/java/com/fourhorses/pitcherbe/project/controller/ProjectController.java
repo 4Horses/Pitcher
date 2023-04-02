@@ -2,6 +2,7 @@ package com.fourhorses.pitcherbe.project.controller;
 
 import com.fourhorses.pitcherbe.project.dto.ProjectDto;
 import com.fourhorses.pitcherbe.project.service.ProjectService;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,7 @@ import java.util.List;
 public class ProjectController {
     private final ProjectService projectService;
 
+    @Operation(summary = "Get all projects")
     @GetMapping()
     public ResponseEntity<List<ProjectDto>> getProjects() {
         var projects =  projectService.getProjects();
@@ -24,6 +26,7 @@ public class ProjectController {
         return new ResponseEntity<>(projects, status);
     }
 
+    @Operation(summary = "Create a new project")
     @PostMapping()
     public ResponseEntity<ProjectDto> createProject(@Valid @RequestBody ProjectDto projectDto) {
         var project =  projectService.createProject(projectDto);
@@ -32,6 +35,7 @@ public class ProjectController {
         return new ResponseEntity<>(project, status);
     }
 
+    @Operation(summary = "Delete a project")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProject(@PathVariable Long id) {
         projectService.deleteProject(id);

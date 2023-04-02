@@ -53,4 +53,11 @@ public class OrganizationAccountServiceImpl implements OrganizationAccountServic
         return modelMapper.map(organizationAccountEntities, new TypeToken<List<OrganizationAccountDto>>() {
         }.getType());
     }
+
+    @Override
+    public OrganizationAccountEntity getOrganizationAccountEntityById(Long id) {
+        log.info("Request to get organization account entity by id: {}", id);
+        return organizationAccountRepository.findById(id)
+                .orElseThrow(() -> new BusinessException("Organization account not found"));
+    }
 }

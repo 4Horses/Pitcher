@@ -3,6 +3,8 @@ package com.fourhorses.pitcherbe.project.service;
 import com.fourhorses.pitcherbe.category.service.CategoryService;
 import com.fourhorses.pitcherbe.common.exception.BadRequestException;
 import com.fourhorses.pitcherbe.common.exception.BusinessException;
+import com.fourhorses.pitcherbe.organization_account.dto.OrganizationAccountDto;
+import com.fourhorses.pitcherbe.organization_account.service.OrganizationAccountService;
 import com.fourhorses.pitcherbe.project.dto.ProjectDto;
 import com.fourhorses.pitcherbe.project.entity.ProjectEntity;
 import com.fourhorses.pitcherbe.project.repository.ProjectRepository;
@@ -27,6 +29,7 @@ public class ProjectServiceImpl implements ProjectService {
     private final ProjectRepository projectRepository;
 
     private final CategoryService categoryService;
+    private final OrganizationAccountService organizationAccountService;
     private final UserAccountService userAccountService;
     private final ModelMapper modelMapper;
     private final Clock clock;
@@ -133,6 +136,46 @@ public class ProjectServiceImpl implements ProjectService {
         }
 
         project.getParticipants().remove(userAccount);
+        projectRepository.save(project);
+    }
+
+    @Override
+    public List<OrganizationAccountDto> getSponsors(Long projectId) {
+        log.info("Getting sponsors for project id {}", projectId);
+        var sponsors = getProjectEntityById(projectId).getOrganizations();
+        return modelMapper.map(sponsors, new TypeToken<List<OrganizationAccountDto>>() {
+        }.getType());
+    }
+
+    @Override
+    public OrganizationAccountDto addSponsor(Long projectId, OrganizationAccountDto organizationAccountDto) throws BadRequestException {
+        log.info("Adding sponsor {} to project id {}", organizationAccountDto, projectId);
+
+        var project = getProjectEntityById(projectId);
+        var organizationAccount = organizationAccountService.getOrganizationAccountEntityById(organizationAccountDto.getId());
+
+        if (project.getOrganizations().contains(organizationAccount)) {
+            throw new BadRequestException("Organization already added to project");
+        }
+
+        project.getOrganizations().add(organizationAccount);
+        projectRepository.save(project);
+
+        return modelMapper.map(organizationAccount, OrganizationAccountDto.class);
+    }
+
+    @Override
+    public void removeSponsor(Long projectId, OrganizationAccountDto organizationAccountDto) throws BadRequestException {
+        log.info("Removing sponsor {} from project id {}", organizationAccountDto, projectId);
+
+        var project = getProjectEntityById(projectId);
+        var organizationAccount = organizationAccountService.getOrganizationAccountEntityById(organizationAccountDto.getId());
+
+        if (!project.getOrganizations().contains(organizationAccount)) {
+            throw new BadRequestException("Organization not added to project");
+        }
+
+        project.getOrganizations().remove(organizationAccount);
         projectRepository.save(project);
     }
 }
