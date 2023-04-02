@@ -20,7 +20,7 @@ public interface ProjectRepository extends JpaRepository<ProjectEntity, Long> {
             WHERE o.id =?1
             AND p.isDeleted = false
             """)
-    Long countSponsoredProjects(Long userId);
+    Long countSponsoredProjects(Long accountId);
 
     @Query("""
             SELECT COUNT(p)

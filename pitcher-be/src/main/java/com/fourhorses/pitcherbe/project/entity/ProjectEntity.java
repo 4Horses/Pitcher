@@ -52,7 +52,7 @@ public class ProjectEntity extends BaseEntity {
     @JoinColumn(name = "category_id")
     private CategoryEntity category;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "participant",
             joinColumns = @JoinColumn(name = "project_id", referencedColumnName = "id"),
@@ -61,7 +61,7 @@ public class ProjectEntity extends BaseEntity {
     @ToString.Exclude
     private List<UserAccountEntity> participants;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "sponsor",
             joinColumns = @JoinColumn(name = "project_id", referencedColumnName = "id"),
