@@ -17,8 +17,8 @@
 }
 
 .menu-dot {
-  background-color: black;
-  box-shadow: -6px 0 0 0 black, 6px 0 0 0 black;
+  background-color: #fff;
+  box-shadow: -6px 0 0 0 #fff, 6px 0 0 0 #fff;
   width: 4px;
   height: 4px;
   border: 0;
@@ -36,12 +36,15 @@
 
 .job-card-title,
 .job-stat {
-  color: black;
+  color: #fff;
 }
 .job-card-subtitle,
 .job-day {
-  color: black;
+  color: #fff;
 }
+
+$color-container-bg: #0d0f2f;
+$color-bar-bg: #3d4780;
 
 .search-buttons {
   border: 1px lightcyan solid;
@@ -63,10 +66,10 @@
   margin: 1rem;
   padding: 0.5rem;
   border-radius: 4px;
-  background: hsla(206, 100%, 50%, 1);
-  background: linear-gradient(90deg, hsla(206, 100%, 50%, 1) 0%, hsla(198, 100%, 80%, 1) 100%);
-  background: -moz-linear-gradient(90deg, hsla(206, 100%, 50%, 1) 0%, hsla(198, 100%, 80%, 1) 100%);
-  background: -webkit-linear-gradient(90deg, hsla(206, 100%, 50%, 1) 0%, hsla(198, 100%, 80%, 1) 100%);
+  background: $color-container-bg;
+  background: linear-gradient(90deg, $color-container-bg 0%, $color-bar-bg 100%);
+  background: -moz-linear-gradient(90deg, $color-container-bg 0%, $color-bar-bg 100%);
+  background: -webkit-linear-gradient(90deg, $color-container-bg 0%, $color-bar-bg 100%);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
   transition: all 0.3s ease-in-out;
   &:hover {

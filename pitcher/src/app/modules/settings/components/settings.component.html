@@ -1,1 +1,11 @@
-<p>settings works!</p>
+<div class="elements-section">
+  <div class="search-bar">
+
+  </div>
+  <ng-container *ngIf="categories.length === 0">
+    <img class="image-not-found" src="../../../../assets/images/404-not-found-2.svg" height="300" width="auto" alt="No posts available">
+  </ng-container>
+  <div class="job-card-list">
+    <app-category-card *ngFor="let category of categories" [category]="category"></app-category-card>
+  </div>
+</div>

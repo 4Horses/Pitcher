@@ -10,8 +10,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationComponent } from './features/navigation/navigation.component';
 import { SharedModule } from './shared/shared.module';
-import { CategoryPageComponent } from './features/category-page/category-page.component';
-import { CategoryCardComponent } from './shared/components/category-card/category-card.component';
 
 @NgModule({
   declarations: [
@@ -19,9 +17,7 @@ import { CategoryCardComponent } from './shared/components/category-card/categor
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    NavigationComponent,
-    CategoryPageComponent,
-    CategoryCardComponent
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
