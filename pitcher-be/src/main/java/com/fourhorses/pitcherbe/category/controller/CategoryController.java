@@ -2,6 +2,7 @@ package com.fourhorses.pitcherbe.category.controller;
 
 import com.fourhorses.pitcherbe.category.dto.CategoryDto;
 import com.fourhorses.pitcherbe.category.service.CategoryService;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,7 @@ import java.util.List;
 public class CategoryController {
     private final CategoryService categoryService;
 
+    @Operation(summary = "Get all categories")
     @GetMapping()
     public ResponseEntity<List<CategoryDto>> getAllCategories() {
         var categories = categoryService.getAllCategories();
