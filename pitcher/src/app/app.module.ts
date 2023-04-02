@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationComponent } from './features/navigation/navigation.component';
 import { SharedModule } from './shared/shared.module';
+import { ProjectDetailsComponent } from './core/components/project-details/project-details.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SharedModule } from './shared/shared.module';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    NavigationComponent
+    NavigationComponent,
+    ProjectDetailsComponent
   ],
   imports: [
     BrowserModule,

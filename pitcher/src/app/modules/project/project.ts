@@ -1,4 +1,4 @@
-export class Project {
+export class ProjectDto {
   constructor(
     public name: string,
     public progress: number,

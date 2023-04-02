@@ -1,25 +1,31 @@
 <div class="body">
   <div class="list-container">
+    <div class="logout-container">
+      <button type="button" class="button" (click)="logOut()">
+        Log out
+      </button>
+    </div>
+   
     <div class="list-header">Your projects</div>
+    <hr>
+    <label style="color: #fafafa; font-size:larger;">Coming together is a beginning, staying together is progress, and working together is success.</label>
     <div class="container">
-      <div *ngFor="let p of projects" class="card">
+      <div *ngFor="let p of projects" class="card" (click)="openDetailsModal(p)">
         <div (mouseover)="onHover(p)" (mouseout)="onLeave(p)">
           <h3 class="title">{{ p.name }}</h3>
           <div class="bar">
             <div class="emptybar"></div>
-            <div class="filledbar" [style.--progress]="p.progress"></div>
+            <div class="filledbar" [style.--progress]="getProgress(p)"></div>
           </div>
           <p class="description">{{ p.description }}</p>
         </div>
       </div>
     </div>
-    <button
-    type="button"
-    class="button"
-    (click)="createProject()"
-  >
-    Add Project
-  </button>
-   
+    <button type="button" class="button" (click)="createProject()">
+      Add Project
+    </button>
+    <div class="bottom-rights">
+      <label style="color: #fafafa">Ⓒ 2023, Pitcher, All Rights reserved</label>
+    </div>
   </div>
 </div>

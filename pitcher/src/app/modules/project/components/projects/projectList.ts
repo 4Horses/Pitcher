@@ -1,31 +1,55 @@
-import { Project } from "../../project";
+import { Project } from "src/app/core/models/project.model";
 
-export const projectList = [
-  new Project(
-    'Gamification App',
-    99,
-    'Get motivated to achieve your goals with our fun and engaging gamification app that tracks your progress and encourages you every step of the way'
-  ),
-  new Project(
-    'Woodworking Project',
-    0,
-    'Transform your living space with our DIY woodworking project that teaches you how to build custom shelves, cabinets, or other storage solutions that fit your unique style and needs'
-  ),
-  new Project(
-    'Economy Project',
-    99,
-    'Explore the world of finance and investing with our economy project that offers insights and analysis on market trends, investment strategies, and economic indicators.'
-  ),
-  new Project(
-    'Cooking Project',
-    25,
-    'Learn new recipes and techniques from top chefs with our cooking project that includes step-by-step videos and interactive tutorials.'
-  ),
-  new Project(
-    'Cooking Project',
-    25,
-    'Learn new recipes and techniques from top chefs with our cooking project that includes step-by-step videos and interactive tutorials.'
-  ),
+export const projectList: Project[] = [
+  {
+    id: 1,
+    name: "Gameification App",
+    description: "Project 1 description",
+    categoryId: 1,
+    userAccountId: 1,
+    createdAt: "2021-05-01",
+    startDate: 1,
+    endDate: "2021-05-01",
+    isHovered: false,
+    progress: 90,
+  },
+  {
+    id: 2,
+    name: "Woodworking Activity",
+    description: "Project 2 description",
+    categoryId: 1,
+    userAccountId: 1,
+    createdAt: "2021-05-01",
+    startDate: 1,
+    endDate: "2021-05-01",
+    isHovered: false,
+    progress: 50,
+  },
+  {
+    id: 3,
+    name: "Food Activity",
+    description: "Project 3 description",
+    categoryId: 1,
+    userAccountId: 1,
+    createdAt: "2021-05-01",
+    startDate: 1,
+    endDate: "2021-05-01",
+    isHovered: false,
+    progress: 17,
+  },
+  {
+    id: 4,
+    name: "Economy App",
+    description: "Project 3 description",
+    categoryId: 1,
+    userAccountId: 1,
+    createdAt: "2021-05-01",
+    startDate: 1,
+    endDate: "2021-05-01",
+    isHovered: false,
+    progress: 45,
+  },
+
 
  
 ];

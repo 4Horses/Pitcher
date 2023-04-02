@@ -9,7 +9,7 @@ export class MenuItem {
 
 export const menuList = [
     new MenuItem('Profile', 'profile', 'Your Profile', 'science'),
-    new MenuItem('Dashboard', 'dashboard', 'Dashboard', 'biotech'),
+    new MenuItem('Dashboard', 'projects/all', 'Home', 'biotech'),
     new MenuItem('Projects', 'projects', 'Projects', 'calculate'),
     new MenuItem('Badges', 'statistics', 'Statistics', 'star'),
     new MenuItem('Categories', 'settings', 'Settings', 'label_outline'),

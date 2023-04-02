@@ -7,4 +7,6 @@ export class Project{
     createdAt: string;
     startDate: number;
     endDate: string;
+    isHovered = false;
+    progress: number;
 }
