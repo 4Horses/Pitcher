@@ -54,6 +54,7 @@ public class ProjectServiceImpl implements ProjectService {
                 .description(projectDto.getDescription())
                 .category(categoryService.getCategoryEntityById(projectDto.getCategoryId()))
                 .userAccount(userAccountService.getUserAccountEntityById(projectDto.getUserAccountId()))
+                .isFinished(projectDto.getIsFinished())
                 .build();
 
         var savedProject = projectRepository.save(projectEntity);

@@ -14,4 +14,5 @@ public class ProjectDto {
     private LocalDateTime createdAt;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
+    private Boolean isFinished;
 }

@@ -44,6 +44,11 @@ public class ProjectEntity extends BaseEntity {
     @Builder.Default
     private Boolean isDeleted = false;
 
+    @Basic
+    @Column(name = "is_finished")
+    @Builder.Default
+    private Boolean isFinished = false;
+
     @ManyToOne
     @JoinColumn(name = "user_account_id")
     private UserAccountEntity userAccount;
