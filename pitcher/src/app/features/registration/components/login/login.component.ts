@@ -27,21 +27,20 @@ export class LoginComponent {
   isValid() {
     return this.reactiveForm.valid;
   }
+
   login() {
+   
+   this.router.navigate([`/home`]);
     this.authenticationService
-      .login(
-        this.reactiveForm.controls.email.value!,
-        this.reactiveForm.controls.password.value!
-      )
-      .subscribe(
-        (data) => {
-          localStorage.setItem('accessToken', '1234567890');
-          this.router.navigate([`/home`]);
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
+    .login(
+      this.reactiveForm.controls.email.value!,
+      this.reactiveForm.controls.password.value!
+    ).pipe(first())
+      .subscribe((data) => {
+        this.router.navigate([`/home`]);
+        localStorage.setItem('accessToken', '1234567890');
+      });
+
     
   }
 }
