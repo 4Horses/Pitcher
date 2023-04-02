@@ -1,16 +1,4 @@
-$color-background: #1b1d43;
-$color-container-bg: #0d0f2f;
-$color-bar-bg: #3d4780;
-$color-filledbar-start: #4d12ad;
-$color-active-btn: #7a85bf;
-$color-filledbar-middle: #ffc400;
-$color-filledbar-end: #de350a;
-$color-filledbar-gradient: linear-gradient(
-    90deg,
-    $color-filledbar-start 0%,
-    $color-filledbar-middle 65%,
-    $color-filledbar-end 100%,
-);
+@import '../../../../../styles.scss';
 .logout-container{
     display: flex;
     justify-content: flex-end;
@@ -20,11 +8,10 @@ $color-filledbar-gradient: linear-gradient(
 hr{
     border: 1px solid #fafafa;
     width: 80%;
-@import '../../../../../styles.scss';
+
 
 }
 .body {
-    padding-top: 5%;
     background-color: $color-bg-primary;
     font-family: "Open Sans", sans-serif;
     width: 100%;
@@ -157,6 +144,7 @@ hr{
     font-weight: 900;
     transition: display 0.8s ease-in;
     font-size: 40px;
+    margin-bottom: 20px;
 }
 
 .button {
@@ -185,4 +173,7 @@ hr{
 
 .modal{
     background-color: $color-bg-primary;
+}
+.bottom-rights{
+    margin-bottom: 20px;
 }

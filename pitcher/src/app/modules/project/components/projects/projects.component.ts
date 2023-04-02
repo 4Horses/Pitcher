@@ -15,7 +15,7 @@ import * as moment from 'moment';
   styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent {
-  projects = projectList;
+  projects: Project[];
   @ViewChild('newProjectModal') newProjectModal!: NewProjectComponent;
 
   constructor(
@@ -27,12 +27,16 @@ export class ProjectsComponent {
     this.dialog = dialog;
   }
   ngOnInit(): void {
+   this. getProjects();
+  }
+  getProjects(){
     this.projectService
-      .getAllProjects()
-      .pipe(first())
-      .subscribe((data) => {
-        this.projects = data;
-      });
+    .getAllProjects()
+    .pipe(first())
+    .subscribe((data) => {
+      console.log(data)
+      this.projects = data;
+    });
   }
   getProgress(project: Project) {
     var start = moment(project.startDate);
@@ -65,7 +69,7 @@ export class ProjectsComponent {
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.projects.push(result);
+        this.getProjects();
       }
     });
   }

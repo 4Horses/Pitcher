@@ -8,7 +8,7 @@
    
     <div class="list-header">Your projects</div>
     <hr>
-    <label style="color: #fafafa; font-size:larger;">Coming together is a beginning, staying together is progress, and working together is success.</label>
+    <label style="color: #fafafa; font-size:larger; margin-top: 30px;">Coming together is a beginning, staying together is progress, and working together is success.</label>
     <div class="container">
       <div *ngFor="let p of projects" class="card" (click)="openDetailsModal(p)">
         <div (mouseover)="onHover(p)" (mouseout)="onLeave(p)">

@@ -21,6 +21,9 @@ export class ProjectService {
   getAllProjects() {
     return this.http.get<any>(`http://localhost:8081/projects`, httpOptions);
   }
+  getProjectById(projectId: number) {
+    return this.http.get<any>(`http://localhost:8081/projects/${projectId}`, httpOptions);
+  }
 
   updateUser(user: Project) {
     return this.http.patch<any>(`http://localhost:8081/user`, user, httpOptions);

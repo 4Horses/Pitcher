@@ -1,5 +1,6 @@
 import { Component, ElementRef } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { ProjectService } from 'src/app/core/services/project.service';
 
 @Component({
   selector: 'app-new-project',
@@ -13,7 +14,8 @@ export class NewProjectComponent {
 
   constructor(
     public dialogRef: MatDialogRef<NewProjectComponent>,
-    public elementRef: ElementRef
+    public elementRef: ElementRef,
+    private projectService: ProjectService
   ) {}
 
   submitProject(): void {
@@ -22,6 +24,10 @@ export class NewProjectComponent {
       category: this.category,
       description: this.description,
     };
-    this.dialogRef.close(project);
+   
+
+   // this.projectService.createPost(project).subscribe((data) => {
+      this.dialogRef.close(project);
+   // });
   }
 }

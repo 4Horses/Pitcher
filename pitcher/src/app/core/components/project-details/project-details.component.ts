@@ -12,7 +12,7 @@ import { ProjectService } from '../../services/project.service';
   styleUrls: ['./project-details.component.scss'],
 })
 export class ProjectDetailsComponent {
-  list = projectList;
+
   currentObject: Project;
   public reactiveForm = new FormGroup({
     name: new FormControl(''),
@@ -34,8 +34,10 @@ export class ProjectDetailsComponent {
     this.activatedRoute.paramMap.subscribe((params) => {
       this.projectId = +params.get('projectId')!;
     });
-    //this.reactiveForm.patchValue(this.list[this.projectId-1]);
-    this.currentObject = this.list[this.projectId - 1];
+
+    this.projectService.getProjectById(this.projectId).pipe(first()).subscribe((data) => {
+      this.currentObject = data;
+    });
   }
 
   joinProject() {
