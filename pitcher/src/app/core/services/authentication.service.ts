@@ -1,13 +1,28 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json; charset=utf-8;',
+  }),
+};
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   login(username: string, password: string) {
-    localStorage.setItem('accessToken', '1234567890');
+    const user = {
+      username: username,
+      password: password,
+    };
+    return this.http.post<any>(
+      `http://localhost:8081/account`,
+      user,
+      httpOptions
+    );
   }
 
   logout() {

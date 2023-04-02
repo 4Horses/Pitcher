@@ -62,25 +62,7 @@
               aria-describedby="emailHelp"
               placeholder="Enter your last name"
             />
-            <label for="exampleInputEmail1">*Email</label>
-            <span
-              *ngIf="
-                individualForm.controls.Email.invalid &&
-                (individualForm.controls.Email.touched ||
-                  individualForm.controls.Email.dirty)
-              "
-              class="text-danger"
-            >
-              Please enter your email!
-            </span>
-            <input
-              type="email"
-              class="form-control"
-              id="exampleInputEmail1"
-              formControlName="Email"
-              aria-describedby="emailHelp"
-              placeholder="Enter your email"
-            />
+
             <label for="exampleInputEmail1">*Phone number</label>
             <span
               *ngIf="
@@ -100,10 +82,58 @@
               aria-describedby="emailHelp"
               placeholder="Enter your phone number"
             />
+
+            <label for="exampleInputEmail1">*Email</label>
+            <span
+              *ngIf="
+                individualForm.controls.Email.invalid &&
+                (individualForm.controls.Email.touched ||
+                  individualForm.controls.Email.dirty)
+              "
+              class="text-danger"
+            >
+              Please enter your email!
+            </span>
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              formControlName="Email"
+              aria-describedby="emailHelp"
+              placeholder="Enter your email"
+            />
+            <label for="exampleInputEmail1">*Password</label>
+            <span
+              *ngIf="
+                individualForm.controls.Password.invalid &&
+                (individualForm.controls.Password.touched ||
+                  individualForm.controls.Password.dirty)
+              "
+              class="text-danger"
+            >
+            <br>
+            A password should be alphanumeric. <br>First letter of the password
+            should be capital.<br> Password must contain a special character (@,
+            $, !, &, etc). <br>Password length must be greater than 8 characters.
+           <br>
+            </span>
+            <input
+              type="password"
+              class="form-control"
+              formControlName="Password"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Enter your password"
+            />
           </div>
 
           <div class="button-container">
-            <button type="submit" class="btn btn-primary register" [disabled]="!isValidForEdit()">
+            <button
+              type="submit"
+              class="btn btn-primary register"
+              [disabled]="!isValidForEdit()"
+              (click)="createUserAccount()"
+            >
               Register
             </button>
           </div>
@@ -138,32 +168,12 @@
               placeholder="Enter your company name"
             />
 
-            <label for="exampleInputEmail1">*Email</label>
-            <span
-              *ngIf="
-                corporateForm.controls.Email.invalid &&
-                (corporateForm.controls.Email.touched ||
-                  corporateForm.controls.Email.dirty)
-              "
-              class="text-danger"
-            >
-              Please enter your company email!
-            </span>
-            <input
-              type="email"
-              class="form-control"
-              id="exampleInputEmail1"
-              formControlName="Email"
-              aria-describedby="emailHelp"
-              placeholder="Enter your company email"
-            />
-
             <label for="exampleInputEmail1">*Phone number</label>
             <span
               *ngIf="
-                corporateForm.controls.Name.invalid &&
-                (corporateForm.controls.Name.touched ||
-                  corporateForm.controls.Name.dirty)
+                corporateForm.controls.PhoneNumber.invalid &&
+                (corporateForm.controls.PhoneNumber.touched ||
+                  corporateForm.controls.PhoneNumber.dirty)
               "
               class="text-danger"
             >
@@ -198,10 +208,56 @@
               aria-describedby="emailHelp"
               placeholder="Enter your company address"
             />
+            <label for="exampleInputEmail1">*Email</label>
+            <span
+              *ngIf="
+                corporateForm.controls.Email.invalid &&
+                (corporateForm.controls.Email.touched ||
+                  corporateForm.controls.Email.dirty)
+              "
+              class="text-danger"
+            >
+              Please enter your company email!
+            </span>
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              formControlName="Email"
+              aria-describedby="emailHelp"
+              placeholder="Enter your company email"
+            />
+            <label for="exampleInputEmail1">*Password</label>
+            <span
+              *ngIf="
+                corporateForm.controls.Password.invalid &&
+                (corporateForm.controls.Password.touched ||
+                  corporateForm.controls.Password.dirty)
+              "
+              class="text-danger"
+            ><br>
+              A password should be alphanumeric. <br>First letter of the password
+              should be capital.<br> Password must contain a special character (@,
+              $, !, &, etc). <br>Password length must be greater than 8 characters.
+             <br>
+            </span>
+          
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputEmail1"
+              formControlName="Password"
+              aria-describedby="emailHelp"
+              placeholder="Enter your password"
+            />
           </div>
 
           <div class="button-container">
-            <button type="submit" class="btn btn-primary register"  [disabled]="!isValidForEdit()">
+            <button
+              type="submit"
+              class="btn btn-primary register"
+              [disabled]="!isValidForEdit()"
+            >
               Register
             </button>
           </div>
